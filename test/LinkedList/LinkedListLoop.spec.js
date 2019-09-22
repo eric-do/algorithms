@@ -1,5 +1,6 @@
 import { expect } from "chai"
-import { LinkedList, Node, findLoopEntry, findLoopLength } from "../LinkedListLoop/LinkedListLoop"
+import { LinkedList, Node } from ".";
+import { findLoopEntry, findLoopLength } from "../../LinkedList/LinkedListLoop"
 
 describe("Linked List Loop", () => {
   it("should find the start of the loop", () => {

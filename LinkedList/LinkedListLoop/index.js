@@ -1,17 +1,3 @@
-class LinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null;
-  }
-}
-
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
-
 const findLoopEntry = LinkedList => {
   if (LinkedList.head === null || LinkedList.head.next === null) { 
     return -1; 
@@ -54,4 +40,4 @@ const findLoopLength = LinkedList => {
   }
   return -1;
 }
-export { LinkedList, Node, findLoopEntry, findLoopLength };
+export { findLoopEntry, findLoopLength };
