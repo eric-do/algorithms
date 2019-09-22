@@ -40,4 +40,18 @@ const findLoopEntry = LinkedList => {
   return -1; 
 };
 
-export { LinkedList, Node, findLoopEntry };
+const findLoopLength = LinkedList => {
+  const loopStart = findLoopEntry(LinkedList);
+  if (loopStart !== -1) {
+    let runner = loopStart.next;
+    let count = 1;
+  
+    while (runner !== loopStart) {
+      runner = runner.next;
+      count++;
+    }
+    return count;
+  }
+  return -1;
+}
+export { LinkedList, Node, findLoopEntry, findLoopLength };
