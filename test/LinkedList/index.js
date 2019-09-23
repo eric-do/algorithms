@@ -29,8 +29,6 @@ class LinkedList {
   }
 
   deleteFromHead() {
-    // If there is no head, do nothing
-    // If there is only one node (i.e. head === tail), set head and tail to null
     if (!this.head) { return null }
     if (this.head === this.tail) {
       const oldHead = this.head;
@@ -42,9 +40,6 @@ class LinkedList {
       this.head = oldHead.next;
       return oldHead;
     }
-    // const oldHead = this.head;
-    // this.head = oldHead.next ? this.oldHead.next : null;
-    // return oldHead;
   }
 
   deleteFromTail() {

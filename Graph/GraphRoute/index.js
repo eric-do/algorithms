@@ -40,9 +40,8 @@ const confirmGraphRouteBFS = (graph, node1, node2) => {
     } else {
       oldHead.value.visited = true;
       if (oldHead.value.children.length > 0) {
-        oldHead.value.children.forEach(child => {
-          !child.visited ? q.addToTail(child) : null
-        });
+        oldHead.value.children.forEach(child => 
+          !child.visited ? q.addToTail(child) : null);
       }
       if (q.head) { oldHead.next = q.head }
       current = current.next;
