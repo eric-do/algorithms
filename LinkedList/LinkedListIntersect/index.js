@@ -1,10 +1,4 @@
-/**
- * Give two singly linked lists, determine if the two lists intersect.
- * Return the interseting node.
- * @param {*} list1 
- * @param {*} list2 
- * @return node
- * 
+/*
  * Input: 2 linked lists
  * Output: intersecting node or -1
  * Constraints: O(1) space
@@ -16,25 +10,24 @@ const findLinkedListIntersection = (list1, list2) => {
   // Remove the difference in length so both need to iterate the same
   // amount to reach intersection
   if (!list1.head || !list2.head) { return -1 }
-  let list1Length = 1;
-  let list2Length = 1;
-  let difference = 0;
-  let runner1 = list1.head;
-  let runner2 = list2.head;
-
-  list1Length = getListLength(list1);
-  list2Length = getListLength(list2);
-  difference = list1Length - list2Length;
   
-  if (difference > 0) {
-    for (let i = 0; i < difference; i++) {
-      runner1 = runner1.next;
-    }
-  } else {
-    for (let j = difference; j < 0; j++) {
-      runner2 = runner2.next;
-    }
-  }
+  let difference = 0;
+  let runner1 = null
+  let runner2 = null;
+  let longList = null;
+  let shortList = null;
+
+  difference = getListLength(list1) - getListLength(list2);
+
+  longList = difference > 0 ? list1 : list2;
+  runner1 = longList.head;
+
+  shortList = difference > 0 ? list2 : list1;
+  runner2 = shortList.head
+
+  difference = Math.abs(difference);
+  
+  runner1 = getKthNode(runner1, difference);
 
   while (runner1 && runner1 !== runner2) {
     runner1 = runner1.next;
@@ -55,8 +48,11 @@ const getListLength = list => {
   return length;
 }
 
-const getChoppedNode = (list, count) => {
-
+const getKthNode = (node, k) => {
+  for (let i = 0; i < k; i++) {
+    node = node.next
+  }
+  return node;
 }
 
 export { findLinkedListIntersection };
