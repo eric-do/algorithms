@@ -1,11 +1,10 @@
 import { LinkedList, Node } from '../../test/LinkedList';
 
+// I: Graph, start node, end node
+// O: true/false
+// C: none
+// E: empty graph
 const confirmGraphRouteDFS = (graph, node1, node2) => {
-  // I: Graph, start node, end node
-  // O: true/false
-  // C: none
-  // E: empty graph
-
   // For each element in node1's children rray
   // If element is node1, descend children until node2 is found
   // Flag each visited node so we don't cycle through all its desendents
@@ -27,8 +26,11 @@ const confirmGraphRouteDFS = (graph, node1, node2) => {
 };
 
 const confirmGraphRouteBFS = (graph, node1, node2) => {
-  // Push node1's children to a queue
-  // If node2 is not in the queue, dequeue and push children to queue
+  // If start node has no edges, return false
+  // Push node into queue
+  // Dequeue node - if it's the node we are looking for, return true
+  // If not the node we are looking for, queue its children
+  // Continue dequeuing and checking nodes
   if (node1.children.leng = 0) { return false }
   const q = new LinkedList();
   q.addToTail(node1);
