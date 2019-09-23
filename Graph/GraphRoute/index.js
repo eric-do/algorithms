@@ -1,3 +1,5 @@
+import { LinkedList, Node } from '../../test/LinkedList';
+
 const confirmGraphRouteDFS = (graph, node1, node2) => {
   // I: Graph, start node, end node
   // O: true/false
@@ -28,19 +30,22 @@ const confirmGraphRouteBFS = (graph, node1, node2) => {
   // Push node1's children to a queue
   // If node2 is not in the queue, dequeue and push children to queue
   if (node1.children.leng = 0) { return false }
-  const queue = [...node1.children];
-
-  while (queue.length > 0) {
-    const current = queue.shift();
-    current.visited = true;
-    if (current === node2) {
+  const q = new LinkedList();
+  q.addToTail(node1);
+  let current = q.head;
+  while (current !== null) {
+    const oldHead = q.deleteFromHead();
+    if (oldHead.value === node2) {
       return true;
-    } else if (current.children.length > 0) {
-      current.children.forEach(child => {
-        if (!child.visited) {
-          queue.push(child);
-        }
-      });
+    } else {
+      oldHead.value.visited = true;
+      if (oldHead.value.children.length > 0) {
+        oldHead.value.children.forEach(child => {
+          !child.visited ? q.addToTail(child) : null
+        });
+      }
+      if (q.head) { oldHead.next = q.head }
+      current = current.next;
     }
   }
   return false;

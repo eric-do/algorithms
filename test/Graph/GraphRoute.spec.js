@@ -22,7 +22,7 @@ describe('Graph route', () => {
 
     return graph;
   }
-  
+
   describe('DFS', () => {
     it('should return true if graph contains a valid route given start/end', () => {
       const graph = getGraph();
