@@ -24,6 +24,7 @@
     "@babel/register": "^7.6.0",
     "chai": "^4.2.0",
     "mocha": "^6.2.0",
-    "nodemon": "^1.19.2"
+    "nodemon": "^1.19.2",
+    "sinon": "^7.5.0"
   }
 }

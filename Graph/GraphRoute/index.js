@@ -1,10 +1,10 @@
 import { LinkedList, Node } from '../../test/LinkedList';
-
 // I: Graph, start node, end node
 // O: true/false
 // C: none
 // E: empty graph
 const confirmGraphRouteDFS = (graph, node1, node2) => {
+  // Confirm a route exists between node1 and node2
   // For each element in node1's children rray
   // If element is node1, descend children until node2 is found
   // Flag each visited node so we don't cycle through all its desendents
